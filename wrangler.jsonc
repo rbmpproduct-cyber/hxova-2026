@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers + OpenNext 設定
+  "name": "hxova-2026",
+  "compatibility_date": "2024-12-18",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // OpenNext build output
+  "main": ".open-next/worker.js",
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}

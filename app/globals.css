@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ── Google Fonts are loaded in layout.tsx via next/font ── */
+
+/* ── CSS Custom Properties (mirrors shared.css) ── */
+:root {
+  --white:     #FFFFFF;
+  --gray-1:    #F2F4F7;
+  --gray-2:    #F0F4F8;
+  --teal-pale: #EDF7F5;
+  --navy:      #0C1D32;
+  --navy-2:    #091525;
+  --navy-3:    #112740;
+  --teal:      #26B5A5;
+  --teal-2:    #1E9C8E;
+  --teal-3:    #48CFC0;
+  --teal-grad: linear-gradient(110deg, #48CFC0 0%, #26B5A5 50%, #1A8A7C 100%);
+  --ink:       #0C1D32;
+  --ink-2:     #2E4057;
+  --ink-3:     #5A7184;
+  --ink-4:     #8FA3B4;
+  --line:      #DDE4EC;
+  --line-soft: #EBF0F5;
+  --yellow:    #F5C518;
+  --r:         10px;
+  --maxw:      1360px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-noto-sans), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Anchor offset for sticky nav */
+[id] {
+  scroll-margin-top: 84px;
+}
+
+/* ── Shared utility classes ── */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+@media (max-width: 768px) {
+  .wrap { padding: 0 20px; }
+}
+
+/* ── Ticker animation ── */
+@keyframes tickMove {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: tickMove 32s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Gradient text (teal) ── */
+.text-teal-grad {
+  background: var(--teal-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
